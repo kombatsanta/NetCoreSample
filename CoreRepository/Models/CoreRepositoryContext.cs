@@ -19,18 +19,14 @@ namespace CoreRepository.Models
             : base(options)
         { }
 
-        /// <summary>
-        /// Avkommentera om du skall uppdatera modellerna från databasen
-        /// </summary>
-        /// <param name="optionsBuilder"></param>
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            //if (!optionsBuilder.IsConfigured)
-            //{
-            ///*To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.*/
-            //    optionsBuilder.UseSqlServer(@"Server=(local);Database=CoreStartup;Integrated Security=True;Trusted_Connection=True;");
-            //}
-        }
+//        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//        {
+//            if (!optionsBuilder.IsConfigured)
+//            {
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+//                optionsBuilder.UseSqlServer(@"Server=(local);Database=CoreStartup;Integrated Security=True;Trusted_Connection=True;");
+//            }
+//        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -125,11 +121,13 @@ namespace CoreRepository.Models
 
             modelBuilder.Entity<User>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.AspNetUserId)
                     .IsRequired()
                     .HasMaxLength(450);
+
+                entity.Property(e => e.Email)
+                    .IsRequired()
+                    .HasDefaultValueSql("('')");
 
                 entity.Property(e => e.FirstName).IsRequired();
 

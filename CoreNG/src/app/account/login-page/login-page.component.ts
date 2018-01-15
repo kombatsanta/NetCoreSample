@@ -12,8 +12,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 export class LoginPageComponent implements OnInit {
 
-  public userName: string;
-  private pwd: string;
+  public user: CurrentUser;
 
   constructor(private authService: AuthService,
     private currentUserService: CurrentUserService,
@@ -23,10 +22,11 @@ export class LoginPageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.user = new CurrentUser();
   }
 
   onLogin() {
-    this.authService.login(this.userName, this.pwd).subscribe(data => {
+    this.authService.login(this.user).subscribe(data => {
       if (data == true) {
         this.currentUserService.loadCurrentUser().subscribe(data => {
           this.eventBusService.broadcastCurrentUser(this.currentUserService.currentUser);

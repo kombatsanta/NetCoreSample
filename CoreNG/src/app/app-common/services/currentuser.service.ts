@@ -15,12 +15,13 @@ export class CurrentUserService {
   }
 
   loadCurrentUser(): Observable<any> {
-
-    return this.http.get<CurrentUser>(this.api.PROFILE).map(data => {
+    if (this.currentUser == null) {
+      return this.http.get<CurrentUser>(this.api.PROFILE).map(data => {
         this.currentUser = data
-    }, err => {
-      this.currentUser = null;
-    });
+      }, err => {
+        this.currentUser = null;
+      });
+    }
   }
 
 }

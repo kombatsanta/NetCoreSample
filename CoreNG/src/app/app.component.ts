@@ -30,6 +30,12 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    var token = this.authService.getAuthorizationToken();
+    if (token) {
+      this.currentUserService.loadCurrentUser().subscribe(data => {
+        this.eventBusService.broadcastCurrentUser(this.currentUserService.currentUser);
+      });
+    }
   }
 
   onLogout() {

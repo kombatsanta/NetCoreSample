@@ -16,7 +16,7 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li *ngIf="!currentUser"><a href="#">Register</a></li>
+        <li *ngIf="!currentUser"><a [routerLink]="['/account/register']">Register</a></li>
         <li *ngIf="!currentUser"><a [routerLink]="['/account/login']">Log in</a></li>
         <li *ngIf="currentUser"><a href="#">{{ currentUser.userName }}</a></li>
         <li *ngIf="currentUser"><a href="javascript:void(null);" (click)="onLogout()">Log out</a></li>

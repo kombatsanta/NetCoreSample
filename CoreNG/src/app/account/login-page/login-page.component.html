@@ -1,11 +1,11 @@
 <form (ngSubmit)="onSubmit()" #loginForm="ngForm" style="padding-bottom:10px;">
   <div class="form-group">
     <label class="control-label" for="userName">Username</label>
-    <input type="text" id="userName" name="userName" [(ngModel)]="userName" />
+    <input type="text" id="userName" name="userName" [(ngModel)]="user.userName" />
   </div>
   <div class="form-group">
     <label class="control-label" for="password">Password</label>
-    <input type="password" id="password" name="password" [(ngModel)]="pwd" />
+    <input type="password" id="password" name="password" [(ngModel)]="user.password" />
   </div>
   <button type="button" class="btn btn-primary" (click)="onLogin()">Login</button>
   <button type="button" class="btn btn-default" (click)="onLogout()">Cancel</button>
