@@ -1,0 +1,7 @@
+<div>
+  <button type="button" class="btn-success" (click)="onGetValues()">Get values</button>
+  <button type="button" class="btn-warning" (click)="onGetValuesSecure()">Get values secure</button>
+</div>
+<div *ngIf="valuesString">
+  {{valuesString}}
+</div>
