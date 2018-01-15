@@ -3,4 +3,7 @@ export class CurrentUser implements server.currentUser {
   userName: string;
   firstName: string;
   lastName: string;
+  email: string;
+  /** Only for register and login */
+  password: string;
 }
