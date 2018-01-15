@@ -25,7 +25,8 @@ namespace CoreService
                 UserName = user.UserName,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
-                Id = user.Id
+                Id = user.Id,
+                Email = user.Email
             };
 
             return ret;
@@ -52,7 +53,6 @@ namespace CoreService
                 }
                 catch (Exception)
                 {
-                    // if we have error - rollback first step (second step not be able accepted)
                     scope.Rollback();
                 }
             }
