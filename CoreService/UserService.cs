@@ -11,11 +11,20 @@ namespace CoreService
     {
         private readonly CoreRepositoryContext _dbContext;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dbContext"></param>
         public UserService(CoreRepositoryContext dbContext)
         {
             _dbContext = dbContext;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
         public CurrentUser GetUser(string userName)
         {
             var user = _dbContext.User.Where(e => e.AspNetUser.UserName == userName).FirstOrDefault();
