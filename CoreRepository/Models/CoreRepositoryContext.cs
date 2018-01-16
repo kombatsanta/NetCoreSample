@@ -15,10 +15,6 @@ namespace CoreRepository.Models
         public virtual DbSet<AspNetUserTokens> AspNetUserTokens { get; set; }
         public virtual DbSet<User> User { get; set; }
 
-        public CoreRepositoryContext(DbContextOptions<CoreRepositoryContext> options)
-            : base(options)
-        { }
-
 //        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 //        {
 //            if (!optionsBuilder.IsConfigured)

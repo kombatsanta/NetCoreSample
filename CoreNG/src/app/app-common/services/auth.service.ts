@@ -22,6 +22,7 @@ export class AuthService {
         localStorage.setItem("token", token.token);
         return true;
       }, err => {
+        console.log("nu blev det error", err);
         return false;
       });
 
